@@ -47,7 +47,7 @@ shaped into its final form. Finally, we chisel away the imperfections when
 we review it with our peers. Don't beat yourself up for first drafts that need
 improvement. Beat up the code instead!
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ## Variables
 
@@ -72,7 +72,7 @@ function between<T>(value: T, left: T, right: T): boolean {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Use pronounceable variable names
 
@@ -98,7 +98,7 @@ type Customer = {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Use the same vocabulary for the same type of variable
 
@@ -116,7 +116,7 @@ function getUserData(): User;
 function getUser(): User;
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Use searchable names
 
@@ -138,7 +138,7 @@ const MILLISECONDS_IN_A_DAY = 24 * 60 * 60 * 1000;
 setTimeout(restart, MILLISECONDS_IN_A_DAY);
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Use explanatory variables
 
@@ -162,7 +162,7 @@ for (const [id, user] of users) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Avoid Mental Mapping
 
@@ -185,7 +185,7 @@ const subscription = getSubscription();
 const transaction = charge(user, subscription);
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Don't add unneeded context
 
@@ -219,7 +219,7 @@ function print(car: Car): void {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Use default arguments instead of short circuiting or conditionals
 
@@ -242,7 +242,7 @@ function loadPages(count: number = 10) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Use enum to document the intent
 
@@ -295,7 +295,7 @@ class Projector {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ## Functions
 
@@ -364,7 +364,7 @@ createMenu({
 });
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Functions should do one thing
 
@@ -396,7 +396,7 @@ function isActiveClient(client: Client) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Function names should say what they do
 
@@ -424,7 +424,7 @@ const date = new Date();
 addMonthToDate(date, 1);
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Functions should only be one level of abstraction
 
@@ -492,7 +492,7 @@ function parse(tokens: Token[]): SyntaxTree {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Remove duplicate code
 
@@ -583,7 +583,7 @@ function showEmployeeList(employee: Developer | Manager) {
 
 You should be critical about code duplication. Sometimes there is a tradeoff between duplicated code and increased complexity by introducing unnecessary abstraction. When two implementations from two different modules look similar but live in different domains, duplication might be acceptable and preferred over extracting the common code. The extracted common code in this case introduces an indirect dependency between the two modules.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Set default objects with Object.assign or destructuring
 
@@ -638,7 +638,7 @@ createMenu({ body: 'Bar' });
 To avoid any side effects and unexpected behavior by passing in explicitly the `undefined` or `null` value, you can tell the TypeScript compiler to not allow it.
 See [`--strictNullChecks`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#--strictnullchecks) option in TypeScript.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Don't use flags as function parameters
 
@@ -669,7 +669,7 @@ function createFile(name: string) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Avoid Side Effects (part 1)
 
@@ -711,7 +711,7 @@ const encodedName = toBase64(name);
 console.log(name);
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Avoid Side Effects (part 2)
 
@@ -743,7 +743,7 @@ function addItemToCart(cart: CartItem[], item: Item): CartItem[] {
 };
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Don't write to global functions
 
@@ -777,7 +777,7 @@ class MyArray<T> extends Array<T> {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Favor functional programming over imperative programming
 
@@ -832,7 +832,7 @@ const totalOutput = contributions
   .reduce((totalLines, output) => totalLines + output.linesOfCode, 0);
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Encapsulate conditionals
 
@@ -856,7 +856,7 @@ if (canActivateService(subscription, account)) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Avoid negative conditionals
 
@@ -884,7 +884,7 @@ if (!isEmailUsed(node)) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Avoid conditionals
 
@@ -949,7 +949,7 @@ class Cessna extends Airplane {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Avoid type checking
 
@@ -979,7 +979,7 @@ function travelToTexas(vehicle: Vehicle) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Don't over-optimize
 
@@ -1003,7 +1003,7 @@ for (let i = 0; i < list.length; i++) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Remove dead code
 
@@ -1036,7 +1036,7 @@ const req = requestModule;
 inventoryTracker('apples', req, 'www.inventory-awesome.io');
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Use iterators and generators
 
@@ -1119,7 +1119,7 @@ itiriri(fibonacci())
   .forEach(fib => console.log(fib));
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ## Objects and Data Structures
 
@@ -1185,7 +1185,7 @@ const account = new BankAccount();
 account.balance = 100;
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Make objects have private/protected members
 
@@ -1228,7 +1228,7 @@ class Circle {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Prefer immutability
 
@@ -1326,7 +1326,7 @@ const result = readonlyData(100);
 result.value = 200; // error
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### type vs. interface
 
@@ -1384,7 +1384,7 @@ class Square implements Shape {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ## Classes
 
@@ -1428,7 +1428,7 @@ class Dashboard {
 // ...
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### High cohesion and low coupling
 
@@ -1508,7 +1508,7 @@ class UserNotifier {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Prefer composition over inheritance
 
@@ -1577,7 +1577,7 @@ class EmployeeTaxData {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Use method chaining
 
@@ -1659,7 +1659,7 @@ const query = new QueryBuilder()
   .build();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ## SOLID
 
@@ -1714,7 +1714,7 @@ class UserSettings {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Open/Closed Principle (OCP)
 
@@ -1807,7 +1807,7 @@ class HttpRequester {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Liskov Substitution Principle (LSP)
 
@@ -1924,7 +1924,7 @@ const shapes = [new Rectangle(4, 5), new Rectangle(4, 5), new Square(5)];
 renderLargeShapes(shapes);
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Interface Segregation Principle (ISP)
 
@@ -2005,7 +2005,7 @@ class EconomicPrinter implements Printer {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Dependency Inversion Principle (DIP)
 
@@ -2102,7 +2102,7 @@ const reader = new ReportReader(new JsonFormatter());
 await report = await reader.read('report.json');
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ## Testing
 
@@ -2120,7 +2120,7 @@ There's no excuse to not write tests. There are [plenty of good JS test framewor
 
 3. You are not allowed to write any more production code than is sufficient to pass the one failing unit test.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### F.I.R.S.T. rules
 
@@ -2136,7 +2136,7 @@ Clean tests should follow the rules:
 
 - **Timely** unit tests should be written before the production code. If you write tests after the production code, you might find writing tests too hard.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Single concept per test
 
@@ -2186,7 +2186,7 @@ describe('AwesomeDate', () => {
 });
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### The name of the test should reveal its intention
 
@@ -2220,7 +2220,7 @@ describe('Calendar', () => {
 });
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ## Concurrency
 
@@ -2291,7 +2291,7 @@ Promises supports a few helper methods that help make code more concise:
 
 `Promise.all` is especially useful when there is a need to run tasks in parallel. `Promise.race` makes it easier to implement things like timeouts for promises.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Async/Await are even cleaner than Promises
 
@@ -2339,7 +2339,7 @@ try {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ## Error Handling
 
@@ -2406,7 +2406,7 @@ function calculateTotal(items: Item[]): Failable<number, 'empty'> {
 
 For the detailed explanation of this idea refer to the [original post](https://medium.com/@dhruvrajvanshi/making-exceptions-type-safe-in-typescript-c4d200ee78e9).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Don't ignore caught errors
 
@@ -2442,7 +2442,7 @@ try {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Don't ignore rejected promises
 
@@ -2483,7 +2483,7 @@ try {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ## Formatting
 
@@ -2546,7 +2546,7 @@ type Container = { /* ... */ }
 Prefer using `PascalCase` for class, interface, type and namespace names.  
 Prefer using `camelCase` for variables, functions and class members.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Function callers and callees should be close
 
@@ -2635,7 +2635,7 @@ const review = new PerformanceReview(employee);
 review.review();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Organize imports
 
@@ -2681,7 +2681,7 @@ import { ApiCredentials, Adapters } from './common/api/authorization';
 import { ConfigPlugin } from './plugins/config/configPlugin';
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Use typescript aliases
 
@@ -2715,7 +2715,7 @@ import { UserService } from '@services/UserService';
 ...
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ## Comments
 
@@ -2742,7 +2742,7 @@ const isSubscriptionActive = subscription.endDate > Date.now;
 if (isSubscriptionActive) { /* ... */ }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Don't leave commented out code in your codebase
 
@@ -2768,7 +2768,7 @@ type User = {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Don't have journal comments
 
@@ -2796,7 +2796,7 @@ function combine(a: number, b: number): number {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### Avoid positional markers
 
@@ -2858,7 +2858,7 @@ class Client {
 };
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ### TODO comments
 
@@ -2886,7 +2886,7 @@ function getActiveSubscriptions(): Promise<Subscription[]> {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#tabla-de-contenidos)**
 
 ## Translations
 
