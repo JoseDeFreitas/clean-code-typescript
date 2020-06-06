@@ -1,32 +1,33 @@
 # clean-code-typescript [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Clean%20Code%20Typescript&url=https://github.com/labs42io/clean-code-typescript)
 
-Clean Code concepts adapted for TypeScript.  
-Inspired from [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript).
+Conceptos de "Clean Code" adaptados a TypeScript.
+Inspirado del repositorio [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript).
+Traducción del repositorio [clean-code-typescript](https://github.com/labs42io/clean-code-typescript).
 
-## Table of Contents
+## Tabla de contenidos
 
-  1. [Introduction](#introduction)
+  1. [Introducción](#introduction)
   2. [Variables](#variables)
-  3. [Functions](#functions)
-  4. [Objects and Data Structures](#objects-and-data-structures)
-  5. [Classes](#classes)
+  3. [Funciones](#functions)
+  4. [Objetos y estructura de datos](#objects-and-data-structures)
+  5. [Clases](#classes)
   6. [SOLID](#solid)
-  7. [Testing](#testing)
-  8. [Concurrency](#concurrency)
-  9. [Error Handling](#error-handling)
-  10. [Formatting](#formatting)
-  11. [Comments](#comments)
-  12. [Translations](#translations)
+  7. [Pruebas](#testing)
+  8. [Concurrencia](#concurrency)
+  9. [Solución de errores](#error-handling)
+  10. [Formato](#formatting)
+  11. [Comentarios](#comments)
+  12. [Traducciones](#translations)
 
-## Introduction
+## Introducción
 
 ![Humorous image of software quality estimation as a count of how many expletives
 you shout when reading code](https://www.osnews.com/images/comics/wtfm.jpg)
 
-Software engineering principles, from Robert C. Martin's book
+Principios de la ingeniería de software, extraídos del libro de Robert C. Martin's
 [*Clean Code*](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882),
-adapted for TypeScript. This is not a style guide. It's a guide to producing
-[readable, reusable, and refactorable](https://github.com/ryanmcdermott/3rs-of-software-architecture) software in TypeScript.
+adaptados a TypeScript. Esta no es una guía de estilos. Es una guía para hacer softwares
+[legibles, reusables y refactorizables](https://github.com/ryanmcdermott/3rs-of-software-architecture) en TypeScript.
 
 Not every principle herein has to be strictly followed, and even fewer will be
 universally agreed upon. These are guidelines and nothing more, but they are
