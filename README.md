@@ -16,7 +16,7 @@ Traducción del repositorio [clean-code-typescript](https://github.com/labs42io/
   8. [Concurrencia](#concurrencia)
   9. [Solución de errores](#solución-de-errores)
   10. [Formato](#formato)
-  11. [Comentarios](#comentarios)
+  11. [Comentarios TODO](#comentarios-todo)
   12. [Traducciones](#traducciones)
 
 ## Introducción
@@ -2860,17 +2860,17 @@ class Client {
 };
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### TODO comments
+### Comentarios TODO
 
-When you find yourself that you need to leave notes in the code for some later improvements,
-do that using `// TODO` comments. Most IDE have special support for those kind of comments so that
-you can quickly go over the entire list of todos.  
+Cuando te encuentras necesitando dejar notas en el código para futuras mejoras, utiliza
+los comentarios `// TODO`. La mayoría de IDE tienen soporte de ese tipo de comentarios para que
+puedas navegar rápidamente por la lista completa de comentarios "TODO". 
 
 Keep in mind however that a *TODO* comment is not an excuse for bad code. 
 
-**Bad:**
+**Mal:**
 
 ```ts
 function getActiveSubscriptions(): Promise<Subscription[]> {
@@ -2879,7 +2879,7 @@ function getActiveSubscriptions(): Promise<Subscription[]> {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 function getActiveSubscriptions(): Promise<Subscription[]> {
@@ -2888,20 +2888,20 @@ function getActiveSubscriptions(): Promise<Subscription[]> {
 }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-## Translations
+## Traducciones
 
-This is also available in other languages:
-- ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [vitorfreitas/clean-code-typescript](https://github.com/vitorfreitas/clean-code-typescript)
-- ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese**: 
+Esta guía está también disponible en los siguientes idiomas:
+- ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Portugués de Brasil**: [vitorfreitas/clean-code-typescript](https://github.com/vitorfreitas/clean-code-typescript)
+- ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chino**: 
   - [beginor/clean-code-typescript](https://github.com/beginor/clean-code-typescript)
   - [pipiliang/clean-code-typescript](https://github.com/pipiliang/clean-code-typescript)
-- ![ja](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [MSakamaki/clean-code-typescript](https://github.com/MSakamaki/clean-code-typescript)
-- ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [Real001/clean-code-typescript](https://github.com/Real001/clean-code-typescript)
-- ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Turkish**: [ozanhonamlioglu/clean-code-typescript](https://github.com/ozanhonamlioglu/clean-code-typescript)
-- ![ko](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [738/clean-code-typescript](https://github.com/738/clean-code-typescript)
+- ![ja](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japonés**: [MSakamaki/clean-code-typescript](https://github.com/MSakamaki/clean-code-typescript)
+- ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Ruso**: [Real001/clean-code-typescript](https://github.com/Real001/clean-code-typescript)
+- ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Turco**: [ozanhonamlioglu/clean-code-typescript](https://github.com/ozanhonamlioglu/clean-code-typescript)
+- ![ko](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Coreano**: [738/clean-code-typescript](https://github.com/738/clean-code-typescript)
 
-References will be added once translations are completed.  
-Check this [discussion](https://github.com/labs42io/clean-code-typescript/issues/15) for more details and progress.
-You can make an indispensable contribution to *Clean Code* community by translating this to your language.
+Las referencias serán añadidas cuando las traducciones sean completadas.
+Pásate por esta [discusión](https://github.com/labs42io/clean-code-typescript/issues/15) para más detalles sobre el progreso.
+Puedes hacer una indispensable contribución a la comunidad de *Clean Code* traduciendo esta guía a tu idioma.
