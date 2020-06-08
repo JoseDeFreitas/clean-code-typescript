@@ -1,61 +1,61 @@
 # clean-code-typescript [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Clean%20Code%20Typescript&url=https://github.com/labs42io/clean-code-typescript)
 
-Conceptos de "Clean Code" adaptados a TypeScript.
+Conceptos del "Clean Code (código limpio)" adaptados a TypeScript.
 Inspirado del repositorio [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript).
 Traducción del repositorio [clean-code-typescript](https://github.com/labs42io/clean-code-typescript).
 
 ## Tabla de contenidos
 
-  1. [Introducción](#introduction)
+  1. [Introducción](#introduccion)
   2. [Variables](#variables)
-  3. [Funciones](#functions)
-  4. [Objetos y estructura de datos](#objects-and-data-structures)
-  5. [Clases](#classes)
+  3. [Funciones](#funciones)
+  4. [Objetos y estructura de datos](#objetos-y-estructura-de-datos)
+  5. [Clases](#clases)
   6. [SOLID](#solid)
-  7. [Pruebas](#testing)
-  8. [Concurrencia](#concurrency)
-  9. [Solución de errores](#error-handling)
-  10. [Formato](#formatting)
-  11. [Comentarios](#comments)
-  12. [Traducciones](#translations)
+  7. [Pruebas](#pruebas)
+  8. [Concurrencia](#concurrencia)
+  9. [Solución de errores](#solucion-de-errores)
+  10. [Formato](#formato)
+  11. [Comentarios](#comentarios)
+  12. [Traducciones](#traducciones)
 
 ## Introducción
 
 ![Humorous image of software quality estimation as a count of how many expletives
 you shout when reading code](https://www.osnews.com/images/comics/wtfm.jpg)
 
-Principios de la ingeniería de software, extraídos del libro de Robert C. Martin's
+"Principios de la ingeniería de software", extraídos del libro de Robert C. Martin's
 [*Clean Code*](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882),
 adaptados a TypeScript. Esta no es una guía de estilos. Es una guía para hacer softwares
-[legibles, reusables y refactorizables](https://github.com/ryanmcdermott/3rs-of-software-architecture) en TypeScript.
+[legibles, reusables y refactorizables](https://github.com/ryanmcdermott/3rs-of-software-architecture) utilizando TypeScript.
 
-Not every principle herein has to be strictly followed, and even fewer will be
-universally agreed upon. These are guidelines and nothing more, but they are
-ones codified over many years of collective experience by the authors of
+No todos los principios aquí mencionados tienen que ser estrictamente seguidos, menos aún tienen
+que ser aceptados universalmente. Estas son tan solo directrices.
+Directrices que se han definido a lo largo de muchos años de experiencia colectiva por los autores de
 *Clean Code*.
 
-Our craft of software engineering is just a bit over 50 years old, and we are
-still learning a lot. When software architecture is as old as architecture
-itself, maybe then we will have harder rules to follow. For now, let these
-guidelines serve as a touchstone by which to assess the quality of the
-TypeScript code that you and your team produce.
+Nuestro trabajo como ingenieros de software tiene poco más de 50 años. Aún seguimos
+aprendiendo muchas cosas. Cuando la arquitectura de software es tan antigua como
+la misma arquitectua, tal vez tendremos que seguir directrices más fuertes. Por ahora,
+dejemos que estas directrices funcionen como punto para evaluar la calidad del
+código de TypeScript que tu y tu equipo producen.
 
-One more thing: knowing these won't immediately make you a better software
-developer, and working with them for many years doesn't mean you won't make
-mistakes. Every piece of code starts as a first draft, like wet clay getting
-shaped into its final form. Finally, we chisel away the imperfections when
-we review it with our peers. Don't beat yourself up for first drafts that need
-improvement. Beat up the code instead!
+Una cosa más: saber esto no te hará un mejor desarrollador de software y haber
+trabajado con esta tecnología por muchos años no quiere decir que no cometerás
+errores. Cada trozo de código comienza como un borrador, como arcilla mojada
+que se transforma en la forma deseada. Finalmente, limpiamos las imperfecciones
+cuando las identificamos con la ayuda de nuestro equipo. No te mortifiques por códigos
+en borrador que necesiten mejoras. En vez de eso, ¡enfócate en mejorar el código!
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
 ## Variables
 
-### Use meaningful variable names
+### Usa nombres de variables que tengan sentido.
 
-Distinguish names in such a way that the reader knows what the differences offer.
+Distingue los nombres de las variables para que el lector sepa a qué se refieren.
 
-**Bad:**
+**Mal:**
 
 ```ts
 function between<T>(a1: T, a2: T, a3: T): boolean {
@@ -64,7 +64,7 @@ function between<T>(a1: T, a2: T, a3: T): boolean {
 
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 function between<T>(value: T, left: T, right: T): boolean {
@@ -72,13 +72,13 @@ function between<T>(value: T, left: T, right: T): boolean {
 }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Use pronounceable variable names
+### Usa nombres de variables que sean pronunciables.
 
-If you can’t pronounce it, you can’t discuss it without sounding like an idiot.
+Si no puedes pronunciarlo, no puedes discutir sobre la variable sin sonar como idiota.
 
-**Bad:**
+**Mal:**
 
 ```ts
 type DtaRcrd102 = {
@@ -88,7 +88,7 @@ type DtaRcrd102 = {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 type Customer = {
@@ -98,11 +98,11 @@ type Customer = {
 }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Use the same vocabulary for the same type of variable
+### Usa el mismo vocabulario para el mismo tipo de variable.
 
-**Bad:**
+**Mal:**
 
 ```ts
 function getUserInfo(): User;
@@ -110,26 +110,26 @@ function getUserDetails(): User;
 function getUserData(): User;
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 function getUser(): User;
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Use searchable names
+### Usa nombres que puedas encontrar fácilmente.
 
-We will read more code than we will ever write. It's important that the code we do write is readable and searchable. By *not* naming variables that end up being meaningful for understanding our program, we hurt our readers. Make your names searchable. Tools like [TSLint](https://palantir.github.io/tslint/rules/no-magic-numbers/) can help identify unnamed constants.
+Leeremos más código del que escribiremos. Es importante que el código que escribamos sea legible y pueda ser encontrado con facilidad. Cuando nombramos variables con nombres sin sentido o que son difíciles de encontrar, nuestros lectores sufren. Elige un nombre que sea fácil de encontrar. Herramientas como [TSLint](https://palantir.github.io/tslint/rules/no-magic-numbers/) pueden ayudar a identificar constantes.
 
-**Bad:**
+**Mal:**
 
 ```ts
 // What the heck is 86400000 for?
 setTimeout(restart, 86400000);
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 // Declare them as capitalized named constants.
@@ -138,11 +138,11 @@ const MILLISECONDS_IN_A_DAY = 24 * 60 * 60 * 1000;
 setTimeout(restart, MILLISECONDS_IN_A_DAY);
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Use explanatory variables
+### Usa nombres de variables que expliquen a qué se refieren.
 
-**Bad:**
+**Mal:**
 
 ```ts
 declare const users: Map<string, User>;
@@ -152,7 +152,7 @@ for (const keyValue of users) {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 declare const users: Map<string, User>;
@@ -162,7 +162,7 @@ for (const [id, user] of users) {
 }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
 ### Avoid Mental Mapping
 
