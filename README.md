@@ -6,7 +6,7 @@ Traducción del repositorio [clean-code-typescript](https://github.com/labs42io/
 
 ## Tabla de contenidos
 
-  1. [Introducción](#introduccion)
+  1. [Introducción](#introducción)
   2. [Variables](#variables)
   3. [Funciones](#funciones)
   4. [Objetos y estructura de datos](#objetos-y-estructura-de-datos)
@@ -14,7 +14,7 @@ Traducción del repositorio [clean-code-typescript](https://github.com/labs42io/
   6. [SOLID](#solid)
   7. [Pruebas](#pruebas)
   8. [Concurrencia](#concurrencia)
-  9. [Solución de errores](#solucion-de-errores)
+  9. [Solución de errores](#solución-de-errores)
   10. [Formato](#formato)
   11. [Comentarios](#comentarios)
   12. [Traducciones](#traducciones)
@@ -36,9 +36,9 @@ Directrices que se han definido a lo largo de muchos años de experiencia colect
 
 Nuestro trabajo como ingenieros de software tiene poco más de 50 años. Aún seguimos
 aprendiendo muchas cosas. Cuando la arquitectura de software es tan antigua como
-la misma arquitectua, tal vez tendremos que seguir directrices más fuertes. Por ahora,
+la misma arquitectura, tal vez tendremos que seguir directrices más fuertes. Por ahora,
 dejemos que estas directrices funcionen como punto para evaluar la calidad del
-código de TypeScript que tu y tu equipo producen.
+código de TypeScript que tú y tu equipo producen.
 
 Una cosa más: saber esto no te hará un mejor desarrollador de software y haber
 trabajado con esta tecnología por muchos años no quiere decir que no cometerás
