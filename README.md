@@ -496,11 +496,12 @@ function parse(tokens: Token[]): SyntaxTree {
 
 **[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Remove duplicate code
+### Elimina código que esté duplicado.
 
-Do your absolute best to avoid duplicate code.
-Duplicate code is bad because it means that there's more than one place to alter something if you need to change some logic.  
+Enfócate en evitar código duplicado.
+El código que está duplicado es malo ya que hay un trozo de código más para modificar si necesitas cambiar algo.
 
+Imagina que tienes un restaurante y controlas 
 Imagine if you run a restaurant and you keep track of your inventory: all your tomatoes, onions, garlic, spices, etc.
 If you have multiple lists that you keep this on, then all have to be updated when you serve a dish with tomatoes in them.
 If you only have one list, there's only one place to update!  
