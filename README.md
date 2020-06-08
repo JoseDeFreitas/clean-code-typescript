@@ -164,12 +164,12 @@ for (const [id, user] of users) {
 
 **[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Avoid Mental Mapping
+### Evita el mapeo mental.
 
-Explicit is better than implicit.  
-*Clarity is king.*
+Explícito es mejor que implícito.
+*La claridad es la reina.*
 
-**Bad:**
+**Mal:**
 
 ```ts
 const u = getUser();
@@ -177,7 +177,7 @@ const s = getSubscription();
 const t = charge(u, s);
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 const user = getUser();
@@ -185,13 +185,13 @@ const subscription = getSubscription();
 const transaction = charge(user, subscription);
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Don't add unneeded context
+### No agregues contexto innecesario.
 
-If your class/type/object name tells you something, don't repeat that in your variable name.
+Si el nombre de tu clase/tipo/objeto expresa algo, no lo repitas en el nombre de tu variable.
 
-**Bad:**
+**Mal:**
 
 ```ts
 type Car = {
@@ -205,7 +205,7 @@ function print(car: Car): void {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 type Car = {
@@ -219,13 +219,13 @@ function print(car: Car): void {
 }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Use default arguments instead of short circuiting or conditionals
+### Usa argumentos por defecto en lugar de condicionales.
 
-Default arguments are often cleaner than short circuiting.
+Los argumentos por defecto son generalmente más legibles que las condicionales.
 
-**Bad:**
+**Mal:**
 
 ```ts
 function loadPages(count?: number) {
@@ -234,7 +234,7 @@ function loadPages(count?: number) {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 function loadPages(count: number = 10) {
@@ -242,14 +242,14 @@ function loadPages(count: number = 10) {
 }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Use enum to document the intent
+### Utiliza "enum" para darle sentido al código.
 
-Enums can help you document the intent of the code. For example when we are concerned about values being
-different rather than the exact value of those.
+Los "enums" pueden ayudarte a darle sentido al código. Por ejemplo, cuando nos preocupa que algunos valores sean
+diferentes en lugar del valor exacto de estos.
 
-**Bad:**
+**Mal:**
 
 ```ts
 const GENRE = {
@@ -272,7 +272,7 @@ class Projector {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 enum GENRE {
@@ -295,27 +295,29 @@ class Projector {
 }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-## Functions
+## Funciones
 
-### Function arguments (2 or fewer ideally)
+### Argumentos de las funciones (2 o menos idealmente).
 
-Limiting the amount of function parameters is incredibly important because it makes testing your function easier.
-Having more than three leads to a combinatorial explosion where you have to test tons of different cases with each separate argument.  
+Limitar la cantidad de los parámetros de las funciones es increíblemente importante porque hace que sea más fácil probar tus funciones.
+Tener más de tres conduce a una explosión combinatoria donde tienes que probar una cantidad muy grande de casos diferentes con cada
+argumento por separado. 
 
-One or two arguments is the ideal case, and three should be avoided if possible. Anything more than that should be consolidated.
-Usually, if you have more than two arguments then your function is trying to do too much.
-In cases where it's not, most of the time a higher-level object will suffice as an argument.  
+Uno o dos argumentos es lo ideal. Deberías evitar tres argumentos en la medida de lo posible. Cualquier cosa más que eso debería ser
+consolidada.
+Usualmente, si tienes más de dos argumentos, tu función está intendando hacer más de lo que puede.
+En casos en los que no sea así, la mayoría de las veces bastará como un objeto de nivel superior como argumento.
 
-Consider using object literals if you are finding yourself needing a lot of arguments.  
+Considera el uso de objetos literales si necesitas muchos argumentos. 
 
-To make it obvious what properties the function expects, you can use the [destructuring](https://basarat.gitbook.io/typescript/future-javascript/destructuring) syntax.
-This has a few advantages:
+Para que sea obvio cuales propiedades son las que la función espera, puedes usar la sintaxis ["destructuring"](https://basarat.gitbook.io/typescript/future-javascript/destructuring).
+Esto tiene algunas ventajas:
 
-1. When someone looks at the function signature, it's immediately clear what properties are being used.
+1. Cuando alguien lee la firma de una función, inmediatamente queda claro qué propiedas se están utilizando.
 
-2. It can be used to simulate named parameters.
+2. Puede ser utilizado para simular parámetros con nombres.
 
 3. Destructuring also clones the specified primitive values of the argument object passed into the function. This can help prevent side effects. Note: objects and arrays that are destructured from the argument object are NOT cloned.
 
