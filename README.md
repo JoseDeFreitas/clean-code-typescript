@@ -312,18 +312,18 @@ En casos en los que no sea así, la mayoría de las veces bastará como un objet
 
 Considera el uso de objetos literales si necesitas muchos argumentos. 
 
-Para que sea obvio cuales propiedades son las que la función espera, puedes usar la sintaxis ["destructuring"](https://basarat.gitbook.io/typescript/future-javascript/destructuring).
+Para que sea obvio cuales propiedades son las que la función espera, puedes usar la sintaxis ["destructuring" (destructuración)](https://basarat.gitbook.io/typescript/future-javascript/destructuring).
 Esto tiene algunas ventajas:
 
 1. Cuando alguien lee la firma de una función, inmediatamente queda claro qué propiedas se están utilizando.
 
 2. Puede ser utilizado para simular parámetros con nombres.
 
-3. Destructuring also clones the specified primitive values of the argument object passed into the function. This can help prevent side effects. Note: objects and arrays that are destructured from the argument object are NOT cloned.
+3. La destructuración también clona los valores del primitivo específico del objeto del argumento pasado en la función. Esto aydua a prevenir efectos secundarios. Nota: los objetos y los arreglos que son destructurados del objeto del argumento NO SON clonados.
 
-4. TypeScript warns you about unused properties, which would be impossible without destructuring.
+4. TypeScript te avisa sobre propiedades no utilizadas, cosa que sería imposible sin la destructuración.
 
-**Bad:**
+**Mal:**
 
 ```ts
 function createMenu(title: string, body: string, buttonText: string, cancellable: boolean) {
@@ -333,7 +333,7 @@ function createMenu(title: string, body: string, buttonText: string, cancellable
 createMenu('Foo', 'Bar', 'Baz', true);
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 function createMenu(options: { title: string, body: string, buttonText: string, cancellable: boolean }) {
@@ -348,7 +348,7 @@ createMenu({
 });
 ```
 
-You can further improve readability by using [type aliases](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases):
+Puedes mejorar aún más la legibilidad utilizando ["type aliases"](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases):
 
 ```ts
 
@@ -366,13 +366,13 @@ createMenu({
 });
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Functions should do one thing
+### Las funciones deben realizar solo una cosa.
 
-This is by far the most important rule in software engineering. When functions do more than one thing, they are harder to compose, test, and reason about. When you can isolate a function to just one action, it can be refactored easily and your code will read much cleaner. If you take nothing else away from this guide other than this, you'll be ahead of many developers.
+Esta es sin duda la reglas más importante en la ingeniería de software. Cuando las funciones realizan más de una cosa, se vuelven más difíciles de componer, probar y razonar. Cuando puedes aislar una función a una sola cosa, esta puede ser fácilmente refactorizada y tu código se verá mucho más limpio. Si tan solo tomaras esta declaración de esta guía, estarás por delante de muchos desarrolladores.
 
-**Bad:**
+**Mal:**
 
 ```ts
 function emailClients(clients: Client[]) {
@@ -385,7 +385,7 @@ function emailClients(clients: Client[]) {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 function emailClients(clients: Client[]) {
@@ -398,11 +398,11 @@ function isActiveClient(client: Client) {
 }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Function names should say what they do
+### Los nombres de las funciones deben expresar qué accion ejercen.
 
-**Bad:**
+**Mal:**
 
 ```ts
 function addToDate(date: Date, month: number): Date {
@@ -415,7 +415,7 @@ const date = new Date();
 addToDate(date, 1);
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 function addMonthToDate(date: Date, month: number): Date {
@@ -426,13 +426,13 @@ const date = new Date();
 addMonthToDate(date, 1);
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Functions should only be one level of abstraction
+### Las funciones deben ser de solo un nivel de abstracción.
 
-When you have more than one level of abstraction your function is usually doing too much. Splitting up functions leads to reusability and easier testing.
+Cuando tienes más de un nivel de abstracción tu función usualmente estará haciendo mucho. Partir las funciones provee reutilización y son más fáciles de probar.
 
-**Bad:**
+**Mal:**
 
 ```ts
 function parseCode(code: string) {
@@ -457,7 +457,7 @@ function parseCode(code: string) {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 const REGEXES = [ /* ... */ ];
@@ -494,7 +494,7 @@ function parse(tokens: Token[]): SyntaxTree {
 }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
 ### Remove duplicate code
 
