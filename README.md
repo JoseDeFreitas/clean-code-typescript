@@ -501,16 +501,15 @@ function parse(tokens: Token[]): SyntaxTree {
 Enfócate en evitar código duplicado.
 El código que está duplicado es malo ya que hay un trozo de código más para modificar si necesitas cambiar algo.
 
-Imagina que tienes un restaurante y controlas 
-Imagine if you run a restaurant and you keep track of your inventory: all your tomatoes, onions, garlic, spices, etc.
-If you have multiple lists that you keep this on, then all have to be updated when you serve a dish with tomatoes in them.
-If you only have one list, there's only one place to update!  
+Imagina que tienes un restaurante y controlas tu inventario: todos los tomates, las cebollas, las especias, etc.
+Si tienes múltiples listas en las que está esta información, tendrás que actualizarlas todas cuando sirves un plato con tomates.
+Si solo tienes una lista, ¡solo tendrás que actualizarla en un mismo lugar!
 
-Oftentimes you have duplicate code because you have two or more slightly different things, that share a lot in common, but their differences force you to have two or more separate functions that do much of the same things. Removing duplicate code means creating an abstraction that can handle this set of different things with just one function/module/class.  
+A veces tienes código duplicado porque difieren en pequeñas cosas, que compraten mucho en común, pero que sus diferencias te fuerzan a tener dos o más funciones separadas que hacen mucho de las mismas cosas. Eliminar el código duplicado significa crear una abstracción que pueda soportar este set de cosas diferentes con tan solo una función/módulo o clase.
 
-Getting the abstraction right is critical, that's why you should follow the [SOLID](#solid) principles. Bad abstractions can be worse than duplicate code, so be careful! Having said this, if you can make a good abstraction, do it! Don't repeat yourself, otherwise you'll find yourself updating multiple places anytime you want to change one thing.
+Tener la abstracción correcta es escencial, es por esto que deberías seguir los principios ["Solid (sólido)"](#solid). Las malas abstracciones pueden ser peores que el código duplicado, así que, ¡ten cuidado! Habiendo dicho esto, si puedes hacer una buena abstracción, ¡hazlo! No repitas el código, si no, te encontrarás teniendo que actualizar el código en diferentes lugares cada vez que quieras cambiar tan solo una cosa.
 
-**Bad:**
+**Mal:**
 
 ```ts
 function showDeveloperList(developers: Developer[]) {
@@ -546,7 +545,7 @@ function showManagerList(managers: Manager[]) {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 class Developer {
@@ -584,13 +583,13 @@ function showEmployeeList(employee: Developer | Manager) {
 }
 ```
 
-You should be critical about code duplication. Sometimes there is a tradeoff between duplicated code and increased complexity by introducing unnecessary abstraction. When two implementations from two different modules look similar but live in different domains, duplication might be acceptable and preferred over extracting the common code. The extracted common code in this case introduces an indirect dependency between the two modules.
+Deberías ser crítico sobre el código duplicado. A veces hay más intercambio entre código duplicado y más complejo cuando introduces una abstracción innecesaria. Cuando dos implementaciones de dos módulos diferentes se ven similares pero se encuentran en diferentes dominios, duplicar el código podría ser aceptado y preferible a la extracción del código común. El código común extraído en este caso introduce una dependencia indirecta entre los dos módulos.
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Set default objects with Object.assign or destructuring
+### Establece objetos predeterminados con Object.assign o destructurando.
 
-**Bad:**
+**Mal:**
 
 ```ts
 type MenuConfig = { title?: string, body?: string, buttonText?: string, cancellable?: boolean };
@@ -607,7 +606,7 @@ function createMenu(config: MenuConfig) {
 createMenu({ body: 'Bar' });
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 type MenuConfig = { title?: string, body?: string, buttonText?: string, cancellable?: boolean };
@@ -626,7 +625,7 @@ function createMenu(config: MenuConfig) {
 createMenu({ body: 'Bar' });
 ```
 
-Alternatively, you can use destructuring with default values:
+Alternativamente, puedes destructurar con valores por defecto:
 
 ```ts
 type MenuConfig = { title?: string, body?: string, buttonText?: string, cancellable?: boolean };
@@ -638,17 +637,17 @@ function createMenu({ title = 'Foo', body = 'Bar', buttonText = 'Baz', cancellab
 createMenu({ body: 'Bar' });
 ```
 
-To avoid any side effects and unexpected behavior by passing in explicitly the `undefined` or `null` value, you can tell the TypeScript compiler to not allow it.
-See [`--strictNullChecks`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#--strictnullchecks) option in TypeScript.
+Para evitar cualquier efecto secundario o comportamiento inesperado pasando explícitamente el valor `undefined` o `null`, puedes decirle al compilador de TypeScript que no lo permita.
+Lee la opción [`--strictNullChecks`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#--strictnullchecks) en TypeScript.
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Don't use flags as function parameters
+### No uses indicadores como parámetros de funciones.
 
-Flags tell your user that this function does more than one thing.
-Functions should do one thing. Split out your functions if they are following different code paths based on a boolean.
+Las indicaciones le dicen al usuario que tal función hace más que una cosa.
+Las funciones deben hacer solo una cosa. Divide tus funciones si siguen diferentes rutas de código basadas en boolean.
 
-**Bad:**
+**Mal:**
 
 ```ts
 function createFile(name: string, temp: boolean) {
@@ -660,7 +659,7 @@ function createFile(name: string, temp: boolean) {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 function createTempFile(name: string) {
@@ -672,20 +671,19 @@ function createFile(name: string) {
 }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Avoid Side Effects (part 1)
+### Evita efectos secundarios (parte 1).
 
-A function produces a side effect if it does anything other than take a value in and return another value or values.
-A side effect could be writing to a file, modifying some global variable, or accidentally wiring all your money to a stranger.  
+Una función produce un efecto secundario si no hace más que tomar un valor y devolver otro(s) valor(es).
+Un efecto secundario pudiera ser escribir un archivo, modificar una variable globar o accidentalmente enviar todo tu dinero a un extraño.
 
-Now, you do need to have side effects in a program on occasion. Like the previous example, you might need to write to a file.
-What you want to do is to centralize where you are doing this. Don't have several functions and classes that write to a particular file.
-Have one service that does it. One and only one.  
+Ahora, necesitas tener efectos secundarios en un programa en ciertas ocasiones. Al igual que el ejemplo anterior, tal vez tendrás que escribir un archivo. Lo que quieres hacer es centralizar dónde estás haciendo esto. No tengas demasiadas funciones y clases que escriban a un archivo en particular.
+Ten un servicio que lo haga. Solo uno.
 
-The main point is to avoid common pitfalls like sharing state between objects without any structure, using mutable data types that can be written to by anything, and not centralizing where your side effects occur. If you can do this, you will be happier than the vast majority of other programmers.
+El punto principal es evitar problemas como compartir el estado entre objetos sin ninguna estructura, usar tipos de data mutable que puedan ser escritos por cualquier cosa y no centralizar dónde ocurren los efectos secundarios. Si puedes hacer esto, serás más feliz que la gran mayoría de los demás programadores.
 
-**Bad:**
+**Mal:**
 
 ```ts
 // Global variable referenced by following function.
@@ -701,7 +699,7 @@ toBase64();
 console.log(name); // expected to print 'Robert C. Martin' but instead 'Um9iZXJ0IEMuIE1hcnRpbg=='
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 const name = 'Robert C. Martin';
@@ -714,9 +712,9 @@ const encodedName = toBase64(name);
 console.log(name);
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Avoid Side Effects (part 2)
+### Evita efectos secundarios (parte 2).
 
 In JavaScript, primitives are passed by value and objects/arrays are passed by reference. In the case of objects and arrays, if your function makes a change in a shopping cart array, for example, by adding an item to purchase, then any other function that uses that `cart` array will be affected by this addition. That may be great, however it can be bad too. Let's imagine a bad situation:  
 
