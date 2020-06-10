@@ -2549,12 +2549,12 @@ Preferible utilizar `camelCase` para las variables, las funciones y los miembros
 
 **[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Function callers and callees should be close
+### Las funciones que llaman y las que son llamadas deben estar cerca unas de la otras.
 
-If a function calls another, keep those functions vertically close in the source file. Ideally, keep the caller right above the callee.
-We tend to read code from top-to-bottom, like a newspaper. Because of this, make your code read that way.
+Si una función llama a otra, mantén a esas funciones verticalmente cerca en el archivo. Idealmente, mantén a la función que llama justo encima de la que es llamada.
+Tendemos a leer el código de arriba a abajo, como un periódico. Es por esto que, lo mejor es que tu código se lea bien de esta manera.
 
-**Bad:**
+**Mal:**
 
 ```ts
 class PerformanceReview {
@@ -2595,7 +2595,7 @@ const review = new PerformanceReview(employee);
 review.review();
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 class PerformanceReview {
@@ -2636,18 +2636,18 @@ const review = new PerformanceReview(employee);
 review.review();
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Organize imports
+### Organiza los importes.
 
-With clean and easy to read import statements you can quickly see the dependencies of current code. Make sure you apply following good practices for `import` statements:
+Con declaraciones de importes limpias y fáciles de leer puedes rápidamente ver las dependecias del código actual. Asegúrate de aplicar las siguientes prácticas para las declaraciones de importes (`import`):
 
-- Import statements should be alphabetized and grouped.
-- Unused imports should be removed.
-- Named imports must be alphabetized (i.e. `import {A, B, C} from 'foo';`)
-- Import sources must be alphabetized within groups, i.e.: `import * as foo from 'a'; import * as bar from 'b';`
-- Groups of imports are delineated by blank lines.
-- Groups must respect following order:
+- Las declaraciones de importes deben ser ordenadas alfabéticamente y agrupadas.
+- Declaraciones de importes que no se utilicen deben ser eliminadas.
+- Las declaraciones de importes nombradas deben ser ordenadas alfabéticamente (ej. `import {A, B, C} from 'foo';`)
+- Las fuentes de importes deben ser ordenadas alfabéticamente entre los grupos, ej.: `import * as foo from 'a'; import * as bar from 'b';`
+- Los grupos de importes deben ser delineados por líneas en blanco.
+- Los grupos deben seguir el siguiente orden:
   - Polyfills (i.e. `import 'reflect-metadata';`)
   - Node builtin modules (i.e. `import fs from 'fs';`)
   - external modules (i.e. `import { query } from 'itiriri';`)
@@ -2655,7 +2655,7 @@ With clean and easy to read import statements you can quickly see the dependenci
   - modules from a parent directory (i.e. `import foo from '../foo'; import qux from '../../foo/qux';`)
   - modules from the same or a sibling's directory (i.e. `import bar from './bar'; import baz from './bar/baz';`)
 
-**Bad:**
+**Mal:**
 
 ```ts
 import { TypeDefinition } from '../types/typeDefinition';
@@ -2667,7 +2667,7 @@ import { BindingScopeEnum, Container } from 'inversify';
 import 'reflect-metadata';
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 import 'reflect-metadata';
@@ -2682,21 +2682,21 @@ import { ApiCredentials, Adapters } from './common/api/authorization';
 import { ConfigPlugin } from './plugins/config/configPlugin';
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Use typescript aliases
+### Usa las aliases de TypeScript.
 
-Create prettier imports by defining the paths and baseUrl properties in the compilerOptions section in the `tsconfig.json`
+Crea importes más bonitos definiendo las direcciones y las propiedades baseUrl en la sección compilerOptions en el archivo `tsconfig.json`.
 
-This will avoid long relative paths when doing imports.
+Esto evitará largas direcciones relativas al hacer importes.
 
-**Bad:**
+**Mal:**
 
 ```ts
 import { UserService } from '../../../services/UserService';
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 import { UserService } from '@services/UserService';
@@ -2716,40 +2716,40 @@ import { UserService } from '@services/UserService';
 ...
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-## Comments
+## Comentarios.
 
-The use of a comments is an indication of failure to express without them. Code should be the only source of truth.
+El uso de comentarios indica que no se puede expresar nada sin ellos. El código en sí debería ser la única fuente verdadera.
   
 > Don’t comment bad code—rewrite it.  
 > — *Brian W. Kernighan and P. J. Plaugher*
 
-### Prefer self explanatory code instead of comments
+### Es preferible el código que se entiende por sí mismo a usar comentarios.
 
-Comments are an apology, not a requirement. Good code *mostly* documents itself.
+Los comentarios son una analogía, no un requerimiento. Un buen código *casi siempre* se entiende por sí mismo.
 
-**Bad:**
+**Mal:**
 
 ```ts
 // Check if subscription is active.
 if (subscription.endDate > Date.now) {  }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 const isSubscriptionActive = subscription.endDate > Date.now;
 if (isSubscriptionActive) { /* ... */ }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Don't leave commented out code in your codebase
+### No dejes código comentado en tu archivo base.
 
-Version control exists for a reason. Leave old code in your history.
+El control de versiones existe por una razón. Deja el código viejo en tu historia.
 
-**Bad:**
+**Mal:**
 
 ```ts
 type User = {
@@ -2760,7 +2760,7 @@ type User = {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 type User = {
@@ -2769,13 +2769,13 @@ type User = {
 }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Don't have journal comments
+### No tengas comentarios de diario.
 
-Remember, use version control! There's no need for dead code, commented code, and especially journal comments. Use `git log` to get history!
+Recuerda, ¡usa el control de versiones! No hay necesidad de código sin usar, código comentado y especialmente comentarios de diario. ¡Usa `git log` para ver la historia!
 
-**Bad:**
+**Mal:**
 
 ```ts
 /**
@@ -2789,7 +2789,7 @@ function combine(a: number, b: number): number {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 function combine(a: number, b: number): number {
@@ -2797,14 +2797,14 @@ function combine(a: number, b: number): number {
 }
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
-### Avoid positional markers
+### Evita marcas posicionales.
 
-They usually just add noise. Let the functions and variable names along with the proper indentation and formatting give the visual structure to your code.  
-Most IDE support code folding feature that allows you to collapse/expand blocks of code (see Visual Studio Code [folding regions](https://code.visualstudio.com/updates/v1_17#_folding-regions)).
+Ellas usualmente solo añaden ruido. Deja que las funciones y los nombres de las variales, junto con la indentación y el formato den a tu código una estructura visual.
+La mayoría de los IDEs soportan el código dentro de carpetas, lo que te permite colapsar y expandir bloques de código (ve Visual Studio Code [folding regions](https://code.visualstudio.com/updates/v1_17#_folding-regions)).
 
-**Bad:**
+**Mal:**
 
 ```ts
 ////////////////////////////////////////////////////////////////////////////////
@@ -2836,7 +2836,7 @@ class Client {
 };
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 class Client {
