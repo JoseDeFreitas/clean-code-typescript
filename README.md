@@ -11,7 +11,7 @@ Traducción del repositorio [clean-code-typescript](https://github.com/labs42io/
   3. [Funciones](#funciones)
   4. [Objetos y estructura de datos](#objetos-y-estructura-de-datos)
   5. [Clases](#clases)
-  6. [SOLID](#solid)
+  6. [Sólido](#sólido)
   7. [Pruebas](#pruebas)
   8. [Concurrencia](#concurrencia)
   9. [Solución de errores](#solución-de-errores)
@@ -716,19 +716,19 @@ console.log(name);
 
 ### Evita efectos secundarios (parte 2).
 
-In JavaScript, primitives are passed by value and objects/arrays are passed by reference. In the case of objects and arrays, if your function makes a change in a shopping cart array, for example, by adding an item to purchase, then any other function that uses that `cart` array will be affected by this addition. That may be great, however it can be bad too. Let's imagine a bad situation:  
+En JavaScript, los primitivos son pasados por valor y los objetos y arreglos son pasadors por referencia. En el caso de objetos y arreglos, si tu función hace un cambio en el arreglo de un carrito de compra, por ejemplo, añadiéndole un objeto, cualquier otra función que use ese arreglo de un carrito de compra `cart` será afectado por esta adición. Eso puede ser bueno pero a la vez puede ser malo. Imaginemos una mala situación:
 
-The user clicks the "Purchase", button which calls a `purchase` function that spawns a network request and sends the `cart` array to the server. Because of a bad network connection, the purchase function has to keep retrying the request. Now, what if in the meantime the user accidentally clicks "Add to Cart" button on an item they don't actually want before the network request begins? If that happens and the network request begins, then that purchase function will send the accidentally added item because it has a reference to a shopping cart array that the `addItemToCart` function modified by adding an unwanted item.  
+El usuario hace click en el botón de "Comprar", que llama a la función `purchase` que aparece es solicitada y envía el arreglo `cart` al servidor. Si hay una mala conexión con el servidor, la función de compra tiene que seguir intentando solicitar la información. Ahora, ¿que ocurre si mientras tanto el usuario hace click accidentalmente al botón "Añadir al carrito" en un item que no quiere antes de que la solicitud de la conexión comience? Si eso ocurre y la solicitud de la conexión empieza, la función de esa compro enviará el item añadido accidentalmente ya que está referenciado al arreglo del carrito de la compra que la función `addItemToCart` ha modificado añadiendo el item no deseado.
 
-A great solution would be for the `addItemToCart` to always clone the `cart`, edit it, and return the clone. This ensures that no other functions that are holding onto a reference of the shopping cart will be affected by any changes.  
+Una buena solución podria ser que la función `addItemToCart` siempre clone el `cart`, lo edite y devuelva la copia. Esto asegura que ninguna otra función referenciada al carrito de compras será afectada por algún cambio.
 
-Two caveats to mention to this approach:
+Dos advertencias que mencionar:
 
-1. There might be cases where you actually want to modify the input object, but when you adopt this programming practice you will find that those cases are pretty rare. Most things can be refactored to have no side effects! (see [pure function](https://en.wikipedia.org/wiki/Pure_function))
+1. Pueden haber casos en los que tu quieres modificar el objeto enviado, pero cuando adoptas esta práctica de programación te darás cuenta que esos casos son muy raros. ¡La mayoría de cosas pueden ser refactorizadas para que no ocurra ningún efecto secundario! (ve [pure function](https://en.wikipedia.org/wiki/Pure_function))
 
-2. Cloning big objects can be very expensive in terms of performance. Luckily, this isn't a big issue in practice because there are great libraries that allow this kind of programming approach to be fast and not as memory intensive as it would be for you to manually clone objects and arrays.
+2. Clonar objetos grandes puede ser muy caro en temas de rendimiento. Por suerte, este no es un gran problema en la práctica ya que hay grandiosas librerías que permiten este tipo de usos para que sean rápidos y no consuma tanta memoria como lo sería clonar objetos y arreglos manualmente.
 
-**Bad:**
+**Mal:**
 
 ```ts
 function addItemToCart(cart: CartItem[], item: Item): void {
@@ -736,7 +736,7 @@ function addItemToCart(cart: CartItem[], item: Item): void {
 };
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 function addItemToCart(cart: CartItem[], item: Item): CartItem[] {
@@ -744,7 +744,7 @@ function addItemToCart(cart: CartItem[], item: Item): CartItem[] {
 };
 ```
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
 ### Don't write to global functions
 
@@ -2486,33 +2486,33 @@ try {
 
 **[⬆ back to top](#tabla-de-contenidos)**
 
-## Formatting
+## Formato
 
-Formatting is subjective. Like many rules herein, there is no hard and fast rule that you must follow. The main point is *DO NOT ARGUE* over formatting. There are tons of tools to automate this. Use one! It's a waste of time and money for engineers to argue over formatting. The general rule to follow is *keep consistent formatting rules*.  
+El formato es subjetivo. Al igual que muchas reglas en esta guía, no hay ninguna regla dura que debas seguir. El punto principal es *NO DISCUTIR* sobre el formato. Hay muchas de herramientas para automatizar esto. ¡Usa una de ellas! Es una pérdidad de tiempo y dinero para ingenieros discutir sobre el formato. La regla general es *mantener reglas de formato consistentes*.
 
-For TypeScript there is a powerful tool called [TSLint](https://palantir.github.io/tslint/). It's a static analysis tool that can help you improve dramatically the readability and maintainability of your code. There are ready to use TSLint configurations that you can reference in your projects:
+Para TypeScript hay una poderosa herramienta llamada [TSLint](https://palantir.github.io/tslint/). Es una herramiento de análisis estático que puede ayudarte a mejorar dramáticamente la legibilidad y el mantenimiento de tu código. Hay configuraciones de TSLint que están listas para usar en tus proyectos:
 
-- [TSLint Config Standard](https://www.npmjs.com/package/tslint-config-standard) - standard style rules
+- [TSLint Config Standard](https://www.npmjs.com/package/tslint-config-standard) - reglas estándares de estilos.
 
-- [TSLint Config Airbnb](https://www.npmjs.com/package/tslint-config-airbnb) - Airbnb style guide
+- [TSLint Config Airbnb](https://www.npmjs.com/package/tslint-config-airbnb) - guía de estilos de Airbnb.
 
-- [TSLint Clean Code](https://www.npmjs.com/package/tslint-clean-code) - TSLint rules inspired by the [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.ca/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
+- [TSLint Clean Code](https://www.npmjs.com/package/tslint-clean-code) - reglas de TSLint inspiradas por [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.ca/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882).
 
-- [TSLint react](https://www.npmjs.com/package/tslint-react) - lint rules related to React & JSX
+- [TSLint react](https://www.npmjs.com/package/tslint-react) - reglas lint relacionadas a React y JSX.
 
-- [TSLint + Prettier](https://www.npmjs.com/package/tslint-config-prettier) - lint rules for [Prettier](https://github.com/prettier/prettier) code formatter
+- [TSLint + Prettier](https://www.npmjs.com/package/tslint-config-prettier) - reglas de lint para [Prettier](https://github.com/prettier/prettier).
 
-- [ESLint rules for TSLint](https://www.npmjs.com/package/tslint-eslint-rules) - ESLint rules for TypeScript
+- [ESLint rules for TSLint](https://www.npmjs.com/package/tslint-eslint-rules) - reglas de ESLint para TypeScript.
 
-- [Immutable](https://www.npmjs.com/package/tslint-immutable) - rules to disable mutation in TypeScript
+- [Immutable](https://www.npmjs.com/package/tslint-immutable) - reglas para desabilitar la mutación en TypeScript.
 
-Refer also to this great [TypeScript StyleGuide and Coding Conventions](https://basarat.gitbook.io/typescript/styleguide) source.
+Pásate también por esta increíble herramienta [TypeScript StyleGuide and Coding Conventions](https://basarat.gitbook.io/typescript/styleguide).
 
-### Use consistent capitalization
+### Utiliza capitalización consistente.
 
-Capitalization tells you a lot about your variables, functions, etc. These rules are subjective, so your team can choose whatever they want. The point is, no matter what you all choose, just *be consistent*.
+La capitalización te dice mucho sobre tus variables, funciones, etc. Estas reglas son subjetivas, así que tu equipo puede escoger cualquiera. El punto es, no importa cual elijas, simplemente se *consistente*.
 
-**Bad:**
+**Mal:**
 
 ```ts
 const DAYS_IN_WEEK = 7;
@@ -2528,7 +2528,7 @@ type animal = { /* ... */ }
 type Container = { /* ... */ }
 ```
 
-**Good:**
+**Bien:**
 
 ```ts
 const DAYS_IN_WEEK = 7;
@@ -2544,10 +2544,10 @@ type Animal = { /* ... */ }
 type Container = { /* ... */ }
 ```
 
-Prefer using `PascalCase` for class, interface, type and namespace names.  
-Prefer using `camelCase` for variables, functions and class members.
+Preferible utilizar `PascalCase` para las clases, para el interfaz, el tipo y los nombres.
+Preferible utilizar `camelCase` para las variables, las funciones y los miembros de las clases.
 
-**[⬆ back to top](#tabla-de-contenidos)**
+**[⬆ volver al inicio](#tabla-de-contenidos)**
 
 ### Function callers and callees should be close
 
